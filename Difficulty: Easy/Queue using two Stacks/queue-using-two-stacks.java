@@ -1,25 +1,27 @@
+// User function Template for Java
 class StackQueue {
-    Stack<Integer> s1 = new Stack<Integer>();
-    Stack<Integer> s2 = new Stack<Integer>();
-
-    // Function to push an element in queue by using 2 stacks.
-    void Push(int x) {
-        // Your code here
-        s1.push(x);
+    Stack<Integer> s1 = new Stack<>();
+    Stack<Integer> s2 = new Stack<>();
+    public void push(int B) {
+        // code here
+        s1.push(B);
     }
 
-    // Function to pop an element from queue by using 2 stacks.
-    int Pop() {
-        if(s1.isEmpty() && s2.isEmpty()){
+    public int pop() {
+
+        if (s1.isEmpty() && s2.isEmpty()) {
             return -1;
         }
-        // Your code here
-        //If output stack is Empty transfer all elements from input to output
-        if(s2.isEmpty()){
-           while(!s1.isEmpty()) {
-               s2.push(s1.pop());
-           }
+
+        // If s2 is empty, transfer all elements from s1 → s2
+        if (s2.isEmpty()) {
+            while (!s1.isEmpty()) {
+                s2.push(s1.pop());
+            }
         }
+
+        // Pop from s2 (front of queue)
         return s2.pop();
+        // code here
     }
 }
